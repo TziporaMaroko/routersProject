@@ -6,10 +6,28 @@ const Jewelery = () => {
   const [jewelery, setJewelery] = useState([]);
 
   useEffect(() => {
-    getJewelery()
-      .then(response => response.json())
-      .then(data => setJewelery(data))
-      .catch(error => console.error('Error fetching jewelery:', error));
+    const lastFetchTime = localStorage.getItem('lastJeweleryFetchTime');
+    const now = new Date().getTime();
+
+    // Check if more than 1 minute has passed
+    if (!lastFetchTime || now - lastFetchTime > 60000) {
+      // Fetch from API
+      getJewelery()
+        .then(response => response.json())
+        .then(data => {
+          setJewelery(data);
+          // Update local storage with the fetched data and the current time
+          localStorage.setItem('jeweleryData', JSON.stringify(data));
+          localStorage.setItem('lastJeweleryFetchTime', now);
+        })
+        .catch(error => console.error('Error fetching jewelry:', error));
+    } else {
+      // Retrieve data from local storage
+      const storedJewelery = localStorage.getItem('jeweleryData');
+      if (storedJewelery) {
+        setJewelery(JSON.parse(storedJewelery));
+      }
+    }
   }, []);
 
   return (

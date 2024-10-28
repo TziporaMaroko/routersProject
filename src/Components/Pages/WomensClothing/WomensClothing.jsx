@@ -6,12 +6,28 @@ const WomenClothing = () => {
   const [clothing, setClothing] = useState([]);
 
   useEffect(() => {
-    getWomensClothing()
-      .then((response) => response.json())
-      .then((data) => setClothing(data))
-      .catch((error) =>
-        console.error("Error fetching women’s clothing:", error)
-      );
+    const lastFetchTime = localStorage.getItem('lastClothingFetchTime');
+    const now = new Date().getTime();
+
+    // Check if more than 1 minute has passed
+    if (!lastFetchTime || now - lastFetchTime > 60000) {
+      // Fetch from API
+      getWomensClothing()
+        .then(response => response.json())
+        .then(data => {
+          setClothing(data);
+          // Update local storage with the fetched data and the current time
+          localStorage.setItem('ClothingData', JSON.stringify(data));
+          localStorage.setItem('lastClothingFetchTime', now);
+        })
+        .catch(error => console.error('Error fetching clothing:', error));
+    } else {
+      // Retrieve data from local storage
+      const storedClothing = localStorage.getItem('ClothingData');
+      if (storedClothing) {
+        setClothing(JSON.parse(storedClothing));
+      }
+    }
   }, []);
 
   return (

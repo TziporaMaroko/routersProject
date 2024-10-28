@@ -1,15 +1,3 @@
-/* Container to make the video hero section */
-.hero {
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden;
-}
-
-.hero iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
 
 /* Page content positioned below the hero */
 .page {
