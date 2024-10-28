@@ -1,0 +1,90 @@
+/* Product Cards */
+.productCard {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px var(--subtle-shadow);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(248, 225, 228, 0.3);
+}
+
+.productCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px var(--subtle-shadow);
+}
+
+/* Image Container */
+.productImageContainer {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  background: linear-gradient(
+    45deg,
+    rgba(248, 225, 228, 0.1),
+    rgba(255, 255, 255, 0.8)
+  );
+}
+
+.productImage {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 8px;
+}
+
+.productCard:hover .product-image {
+  transform: scale(1.02);
+}
+
+/* Product Details */
+.productDetails {
+  padding: 20px 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), white);
+  position: relative;
+}
+
+.productDetails h2 {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  margin: 12px 0;
+  color: var(--darker-accent-color);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.productDetails p {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+.productDetails p:last-of-type {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-top: 15px;
+  font-family: var(--font-primary);
+  letter-spacing: 0.5px;
+}
+
+/* Hover overlay */
+.productCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(248, 225, 228, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.productCard:hover::after {
+  opacity: 1;
+}

@@ -1,6 +1,6 @@
 import React , {useState}from 'react';
-import '../../App.css'
-import Wizard from '../Wizard/Wizard.jsx';
+import '../../../App.css'
+import Wizard from '../../Wizard/Wizard.jsx';
 import styles from './Home.module.css'; 
 
 
@@ -37,7 +37,7 @@ function Home() {
         <button className={styles.button} onClick={handlePrev}>Prev</button>
         <button className={styles.button} onClick={handleNext}>Next</button>
       </div>
-      <div style={{ marginTop: '10px' }}>QA: {step}</div>
+      <div>QA: {step}</div>
     </div>
   );
 }

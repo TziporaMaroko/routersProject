@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import Home from './Components/Home/Home.jsx';
-import WomenClothing from './Components/WomensClothing/WomensClothing.jsx';
-import Jewelery from './Components/Jewelery/Jewelery.jsx';
+import Home from './Components/Pages/Home/Home.jsx';
+import WomenClothing from './Components/Pages/WomensClothing/WomensClothing.jsx';
+import Jewelery from './Components/Pages/Jewelery/Jewelery.jsx';
 function App() {
   return (
     <div>

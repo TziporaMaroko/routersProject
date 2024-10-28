@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { getJewelery } from '../../service/products.js';
-import '../../App.css'
+import { getJewelery } from '../../../service/products.js';
+import '../../../App.css'
+import ProductCard from '../../ProductCard/ProductCard.jsx';
 const Jewelery = () => {
   const [jewelery, setJewelery] = useState([]);
 
@@ -14,14 +15,7 @@ const Jewelery = () => {
   return (
       <div className="products-grid">
       {jewelery.map(item => (
-        <div className="product-card" key={item.id}>
-          <img src={item.image} alt={item.title} className="product-image" />
-          <div className="product-details">
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-            <p>Price: ${item.price}</p>
-          </div>
-        </div>
+          <ProductCard key={item.id} item={item} />
       ))}
     </div>
   );

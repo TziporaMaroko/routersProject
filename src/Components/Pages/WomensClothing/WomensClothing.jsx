@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getWomensClothing } from "../../service/products.js";
+import { getWomensClothing } from "../../../service/products.js";
+import ProductCard from '../../ProductCard/ProductCard.jsx';
 
 const WomenClothing = () => {
   const [clothing, setClothing] = useState([]);
@@ -16,14 +17,7 @@ const WomenClothing = () => {
   return (
     <div className="products-grid">
       {clothing.map((item) => (
-        <div className="product-card" key={item.id}>
-          <img src={item.image} alt={item.title} className="product-image" />
-          <div className="product-details">
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-            <p>Price: ${item.price}</p>
-          </div>
-        </div>
+        <ProductCard key={item.id} item={item} />
       ))}
     </div>
   );
