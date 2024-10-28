@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getWomensClothing } from "../../../service/products.js";
+import { getWomenClothing } from "../../../service/products.js";
 import ProductCard from '../../ProductCard/ProductCard.jsx';
 
 const WomenClothing = () => {
@@ -12,7 +12,7 @@ const WomenClothing = () => {
     // Check if more than 1 minute has passed
     if (!lastFetchTime || now - lastFetchTime > 60000) {
       // Fetch from API
-      getWomensClothing()
+      getWomenClothing()
         .then(response => response.json())
         .then(data => {
           setClothing(data);

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Home from './Components/Pages/Home/Home.jsx';
-import WomenClothing from './Components/Pages/WomensClothing/WomensClothing.jsx';
+import WomenClothing from './Components/Pages/WomenClothing/WomenClothing.jsx';
 import Jewelery from './Components/Pages/Jewelery/Jewelery.jsx';
+import Bags from './Components/Pages/Bags/Bags.jsx';
 function App() {
   return (
     <div>
@@ -17,6 +18,9 @@ function App() {
         <li>
           <Link to="/jewelery">Jewelery</Link>
         </li>
+        <li>
+          <Link to="/bags">Bags</Link>
+        </li>
       </ul>
     </nav>
 
@@ -24,6 +28,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/women" element={<WomenClothing />} />
       <Route path="/jewelery" element={<Jewelery />} />
+      <Route path="/bags" element={<Bags />} />
     </Routes>
     </div>
   );
